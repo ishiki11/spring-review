@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>新規登録</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+    <h2>新規登録</h2>
+    <form th:action="@{/review/confirm}" method="post" th:object="${reviewForm}">
+        <p><label>種別：
+            <select th:field="*{reviewTypeCode}">
+                <option th:each="type : ${reviewTypeList}"
+                    th:value="${type.typeCode}"
+                    th:text="${type.typeName}"></option>
+            </select>
+        </label></p>
+        <p><label>タイトル：<input type="text" name="title"></label></p>
+        <p><label>評価：<input type="number" name="rate" min="1" max="50"></label></p>
+        <button type="submit">次へ</button>
+    </form>
+</body>
+</html>
