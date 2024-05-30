@@ -4,9 +4,9 @@ public class Review {
     private int id;
     private String title;
     private int rate;
-    private int reviewTypeCode;
+    private String reviewTypeCode;
 
-    public Review(int id, String title, int rate, int reviewTypeCode) {
+    public Review(int id, String title, int rate, String reviewTypeCode) {
         this.id = id;
         this.title = title;
         this.rate = rate;
@@ -37,11 +37,11 @@ public class Review {
         this.rate = rate;
     }
 
-    public int getReviewTypeCode() {
+    public String getReviewTypeCode() {
         return reviewTypeCode;
     }
 
-    public void setReviewTypeCode(int reviewTypeCode) {
+    public void setReviewTypeCode(String reviewTypeCode) {
         this.reviewTypeCode = reviewTypeCode;
     }
 }
