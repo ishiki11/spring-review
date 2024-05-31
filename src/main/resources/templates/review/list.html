@@ -35,8 +35,8 @@
                 <td><span th:text="${reviewList.title}">sample title</span></td>
                 <td><span th:text="${reviewList.rate}">0</span></td>
                 <td>
-                    <a th:href="@{/review/confirm-delete(trainingId=${reviewList.id})}" class="btn btn-danger">削除</a>
-                    <a th:href="@{/review/confirm-edit(trainingId=${reviewList.id})}" class="btn btn-primary">編集</a>
+                    <a th:href="@{/review/confirm-delete(id=${reviewList.id})}" class="btn btn-danger">削除</a>
+                    <a th:href="@{/review/confirm-edit(id=${reviewList.id})}" class="btn btn-primary">編集</a>
                 </td>
             </tr>
         </table>
