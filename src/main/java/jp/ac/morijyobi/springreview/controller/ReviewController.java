@@ -117,4 +117,14 @@ public class ReviewController {
         model.addAttribute("reviewTypeList", reviewTypes);
         return "review/confirm-edit";
     }
+
+    @PostMapping("/edit")
+    public String edit(Review review, Model model) {
+        int result = reviewService.editReview(review);
+        if (result > 0) {
+            return "redirect:/review/list";
+        } else {
+            return "training/edit-failed";
+        }
+    }
 }
