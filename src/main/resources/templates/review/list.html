@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>一覧</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+<body>
+    <h2>一覧</h2>
+    <a th:href="@{/review/register}">新規登録</a>
+<!--    <form th:action="@{/training/search}" method="get">-->
+<!--        <input type="text" name="keyword">-->
+<!--        <button type="submit">検索</button>-->
+<!--    </form>-->
+    <div class="mx-auto" style="width: 80%">
+        <table class="table table-striped">
+            <colgroup>
+                <col style="width: 15%">
+                <col style="width: 15%">
+                <col style="width: 40%">
+                <col style="width: 15%">
+                <col style="width: 15%">
+            </colgroup>
+            <tr>
+                <th>id</th>
+                <th>種別</th>
+                <th>タイトル</th>
+                <th>評価</th>
+                <th></th>
+            </tr>
+            <tr th:each="reviewList:${allReviewList}">
+                <td><span th:text="${reviewList.id}">0</span></td>
+                <td><span th:text="${reviewList.reviewTypeName}">sample text</span></td>
+                <td><span th:text="${reviewList.title}">sample title</span></td>
+                <td><span th:text="${reviewList.rate}">0</span></td>
+                <td>
+                    <a th:href="@{/review/confirm-delete(trainingId=${reviewList.id})}" class="btn btn-danger">削除</a>
+                    <a th:href="@{/review/confirm-edit(trainingId=${reviewList.id})}" class="btn btn-primary">編集</a>
+                </td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>
