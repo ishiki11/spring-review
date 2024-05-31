@@ -108,4 +108,13 @@ public class ReviewController {
             return "review/delete-failed";
         }
     }
+
+    @GetMapping("/confirm-edit")
+    public String confirmEdit(@RequestParam int id ,Model model) {
+        ReviewList reviewList = reviewService.getReviewById(id);
+        List<ReviewType> reviewTypes = reviewTypeService.getAllReviewTypes();
+        model.addAttribute("reviewList", reviewList);
+        model.addAttribute("reviewTypeList", reviewTypes);
+        return "review/confirm-edit";
+    }
 }
