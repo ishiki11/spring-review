@@ -13,4 +13,9 @@ public interface ReviewListMapper {
             "FROM review INNER JOIN review_type ON review.review_type_code = review_type.type_code " +
             "ORDER BY id")
     List<ReviewList> selectAllReviewList();
+
+    @Select("SELECT review.id, review.title, review.rate, review.review_type_code, review_type.type_name " +
+            "FROM review INNER JOIN review_type ON review.review_type_code = review_type.type_code " +
+            "WHERE review.id = #{id} ORDER BY id")
+    ReviewList selectReviewListById(int id);
 }

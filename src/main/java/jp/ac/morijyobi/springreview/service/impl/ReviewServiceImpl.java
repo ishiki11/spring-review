@@ -38,4 +38,10 @@ public class ReviewServiceImpl implements ReviewService {
     public List<ReviewList> getAllReview() {
         return reviewListMapper.selectAllReviewList();
     }
+
+    @Override
+    public ReviewList getReviewById(int id) {
+        return reviewListMapper.selectReviewListById(id);
+    }
+
 }

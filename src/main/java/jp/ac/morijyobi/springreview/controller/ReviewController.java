@@ -1,6 +1,7 @@
 package jp.ac.morijyobi.springreview.controller;
 
 import jp.ac.morijyobi.springreview.bean.ReviewList;
+import jp.ac.morijyobi.springreview.bean.entity.Review;
 import jp.ac.morijyobi.springreview.bean.form.ReviewForm;
 import jp.ac.morijyobi.springreview.bean.entity.ReviewType;
 import jp.ac.morijyobi.springreview.service.ReviewService;
@@ -12,6 +13,7 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
@@ -88,4 +90,12 @@ public class ReviewController {
 
         return "review/list";
     }
+
+    @GetMapping("/confirm-delete")
+    public String confirmDelete(@RequestParam int id ,Model model) {
+        ReviewList reviewList = reviewService.getReviewById(id);
+        model.addAttribute("reviewList", reviewList);
+        return "review/confirm-delete";
+    }
+
 }

@@ -10,4 +10,7 @@ public interface ReviewService {
     Review registerReview(ReviewForm reviewForm);
 
     List<ReviewList> getAllReview();
+
+    ReviewList getReviewById(int id);
+
 }
