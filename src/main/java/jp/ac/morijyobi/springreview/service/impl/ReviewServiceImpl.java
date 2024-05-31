@@ -53,4 +53,9 @@ public class ReviewServiceImpl implements ReviewService {
     public int editReview(Review review) {
         return reviewMapper.updateReview(review);
     }
+
+    @Override
+    public List<ReviewList> getSearchReview(String typeCode, String titleWord) {
+        return reviewListMapper.selectReviewListByTypeAndWord(typeCode, titleWord);
+    }
 }

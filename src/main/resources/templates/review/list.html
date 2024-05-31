@@ -9,10 +9,18 @@
 <body>
     <h2>一覧</h2>
     <a th:href="@{/review/register}">新規登録</a>
-<!--    <form th:action="@{/training/search}" method="get">-->
-<!--        <input type="text" name="keyword">-->
-<!--        <button type="submit">検索</button>-->
-<!--    </form>-->
+    <form th:action="@{/review/search}" method="get">
+        <p><label>種別：
+            <select id="reviewTypeCode" name="reviewTypeCode">
+                <option value="ALL" selected="selected">すべて</option>
+                <option th:each="type : ${reviewTypeList}"
+                        th:value="${type.typeCode}"
+                        th:text="${type.typeName}"></option>
+            </select>
+        </label></p>
+        <label>タイトル：<input type="text" name="titleWord"></label>
+        <button type="submit">検索</button>
+    </form>
     <div class="mx-auto" style="width: 80%">
         <table class="table table-striped">
             <colgroup>
