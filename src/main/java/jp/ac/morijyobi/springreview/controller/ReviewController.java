@@ -98,4 +98,14 @@ public class ReviewController {
         return "review/confirm-delete";
     }
 
+    @GetMapping("/delete")
+    public String delete(@RequestParam int id,
+                         Model model) {
+        int result = reviewService.deleteReview(id);
+        if (result > 0) {
+            return "redirect:/review/list";
+        } else {
+            return "review/delete-failed";
+        }
+    }
 }

@@ -13,4 +13,6 @@ public interface ReviewService {
 
     ReviewList getReviewById(int id);
 
+    int deleteReview(int id);
+
 }
