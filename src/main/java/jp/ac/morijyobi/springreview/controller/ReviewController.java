@@ -1,5 +1,6 @@
 package jp.ac.morijyobi.springreview.controller;
 
+import jp.ac.morijyobi.springreview.bean.ReviewList;
 import jp.ac.morijyobi.springreview.bean.form.ReviewForm;
 import jp.ac.morijyobi.springreview.bean.entity.ReviewType;
 import jp.ac.morijyobi.springreview.service.ReviewService;
@@ -75,6 +76,16 @@ public class ReviewController {
             return "review/register";
         }
         reviewService.registerReview(reviewForm);
-        return "redirect:review/list";
+        return "redirect:/review/list";
+    }
+
+
+    @GetMapping("/list")
+    public String list(Model model) {
+        // select 文の実行
+        List<ReviewList> allReviewList = reviewService.getAllReview();
+        model.addAttribute("allReviewList", allReviewList);
+
+        return "review/list";
     }
 }
