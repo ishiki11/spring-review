@@ -86,7 +86,9 @@ public class ReviewController {
     public String list(Model model) {
         // select 文の実行
         List<ReviewList> allReviewList = reviewService.getAllReview();
+        List<ReviewType> reviewTypeList = reviewTypeService.getAllReviewTypes();
         model.addAttribute("allReviewList", allReviewList);
+        model.addAttribute("reviewTypeList", reviewTypeList);
 
         return "review/list";
     }
