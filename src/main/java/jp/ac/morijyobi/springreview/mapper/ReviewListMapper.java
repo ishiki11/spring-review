@@ -18,4 +18,20 @@ public interface ReviewListMapper {
             "FROM review INNER JOIN review_type ON review.review_type_code = review_type.type_code " +
             "WHERE review.id = #{id} ORDER BY id")
     ReviewList selectReviewListById(int id);
+
+    @Select("<script> " +
+            "SELECT review.id, review.title, review.rate, review.review_type_code, review_type.type_name " +
+            "FROM review INNER JOIN review_type ON review.review_type_code = review_type.type_code " +
+            "<where>" +
+            "1 = 1" +
+            "<if test='typeCode != null'>" +
+                " AND review.review_type_code = #{typeCode} " +
+            "</if>" +
+            "<if test='titleWord != null'>" +
+                " AND review.title LIKE CONCAT('%',#{titleWord},'%') " +
+            "</if>" +
+            "</where>" +
+            "ORDER BY id" +
+            "</script>")
+    List<ReviewList> selectReviewListByTypeAndWord(String typeCode, String titleWord);
 }
