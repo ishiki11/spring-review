@@ -129,4 +129,19 @@ public class ReviewController {
             return "review/edit-failed";
         }
     }
+
+    @GetMapping("/search")
+    public String searchReview(String reviewTypeCode, String titleWord, Model model) {
+        if (reviewTypeCode == null || reviewTypeCode.trim().isEmpty() || "ALL".equals(reviewTypeCode)) {
+            reviewTypeCode = null; // 全件取得するためにnullを設定
+        }
+        if (titleWord == null || titleWord.trim().isEmpty()) {
+            titleWord = null;
+        }
+        List<ReviewList> searchReviewList = reviewService.getSearchReview(reviewTypeCode, titleWord);
+        List<ReviewType> reviewTypeList = reviewTypeService.getAllReviewTypes();
+        model.addAttribute("allReviewList", searchReviewList);
+        model.addAttribute("reviewTypeList", reviewTypeList);
+        return "review/list";
+    }
 }
