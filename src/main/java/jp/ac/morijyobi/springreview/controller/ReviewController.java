@@ -124,7 +124,7 @@ public class ReviewController {
         if (result > 0) {
             return "redirect:/review/list";
         } else {
-            return "training/edit-failed";
+            return "review/edit-failed";
         }
     }
 }
