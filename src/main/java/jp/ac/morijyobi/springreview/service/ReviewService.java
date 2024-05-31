@@ -10,4 +10,10 @@ public interface ReviewService {
     Review registerReview(ReviewForm reviewForm);
 
     List<ReviewList> getAllReview();
+
+    ReviewList getReviewById(int id);
+
+    int deleteReview(int id);
+
+    int editReview(Review review);
 }
