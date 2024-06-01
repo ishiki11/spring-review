@@ -6,7 +6,7 @@ public class ReviewForm {
     @NotBlank
     private String title;
 
-    private int rate;
+    private int rate = 3;
 
     @NotBlank
     private String reviewTypeCode;
