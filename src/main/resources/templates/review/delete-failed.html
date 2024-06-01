@@ -3,9 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <title>削除失敗</title>
+    <link href="/output.css" rel="stylesheet">
 </head>
 <body>
-    <p style="color: red">削除失敗</p>
-    <a th:href="@{/review/list}" class="btn btn-secondary">戻る</a>
+    <h2 class="text-3xl text-center text-red-600 my-10">削除失敗</h2>
+    <div class="flex justify-center mt-5">
+        <a th:href="@{/review/list}" class="text-white bg-gray-500 hover:bg-gray-600 focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-6 py-3.5">戻る</a>
+    </div>
 </body>
 </html>
