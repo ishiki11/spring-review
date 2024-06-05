@@ -142,6 +142,12 @@ public class ReviewController {
         List<ReviewType> reviewTypeList = reviewTypeService.getAllReviewTypes();
         model.addAttribute("allReviewList", searchReviewList);
         model.addAttribute("reviewTypeList", reviewTypeList);
+        if (reviewTypeCode != null) {
+            model.addAttribute("searchTypeCode", reviewTypeCode);
+        }
+        if (titleWord != null) {
+            model.addAttribute("searchTitleWord", titleWord);
+        }
         return "review/list";
     }
 }
